@@ -13,6 +13,12 @@ export default function Index(props) {
         }
         getData();
     }, []);
+    let itemList = null;
+    if(data.products){
+        itemList = data.products.map(product=>
+            <li key={product.code}>{product.product_name}</li>
+        )
+    }
     return (<>
         <div class="container">
             <form>
@@ -24,9 +30,6 @@ export default function Index(props) {
                 </div>
             </form>
         </div>
-        <pre><code>
-            {JSON.stringify(data)}
-        </code>
-        </pre>
+        <ul>{itemList}</ul>
     </>);
 }

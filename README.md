@@ -1,12 +1,18 @@
-# React + Vite
+# PROG1935-In class task 3
+## Recipe Finder ... take 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Recipe Finder project will allow users to search for recipes, view search results,
+save favorite recipes, and explore recipe details in a dedicated page. But in React. It reinforces events, conditional jsx and rendering lists. There is also a useEffect to fetch from an API.
 
-Currently, two official plugins are available:
+## Marking
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+|Item|Out Of|
+|--|--:|
+|consume [mealdb API](https://www.themealdb.com/api.php)|2|
+|home page|2|
+|recipe detail page|2|
+|Navigation Between Pages|2|
+|Data Validation & Error Handling|2|
+|bonus - any 2 of the enhancements listed in the notes for week 6|1|
+|||
+|total|11|
