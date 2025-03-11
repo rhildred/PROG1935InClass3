@@ -14,20 +14,52 @@ export default function Index(props) {
         getData();
     }, []);
     return (<>
-        <div class="container">
+        <div className="container">
             <form>
-                <div class="control has-icons-left">
-                    <input class="input is-rounded" type="text" placeholder="Search" name="s" />
-                    <span class="icon is-left">
-                        <i class="fa fa-search"></i>
+                <div className="control has-icons-left">
+                    <input className="input is-rounded" type="text" placeholder="Search" name="s" />
+                    <span className="icon is-left">
+                        <i className="fa fa-search"></i>
                     </span>
                 </div>
             </form>
         </div>
-        <ul>
-            {data.products?data.products.map(product =>
-                <li key={product.code}>{product.product_name}</li>
-            ):""}
-        </ul>
+        <main className="section">
+            <div className="container">
+                <h1 className="title">
+                    Hello Open food facts!
+                </h1>
+                <p className="subtitle">
+                    good info about food
+                </p>
+            </div>
+            <div id="results" className="row columns is-mutiline">
+                {data.products ? data.products.map(product =>
+                    <div className="column is-4" key={product.code}>
+                        <div className="card large">
+                            <div className="card-image">
+                                <figure className="image">
+                                    <img src={product.image_front_small_url}
+                                        alt={product.product_name} />
+                                </figure>
+                            </div>
+                            <div className="card-content">
+                                <div className="media">
+                                    <div className="media-content">
+                                        <p className="title is-4">{product.product_name}</p>
+                                    </div>
+                                </div>
+
+                                <div className="content">
+                                    See more about {product.product_name}
+                                    <a href={`?code=${product.code}`}> here</a>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                ) : ""}
+            </div>
+        </main>
     </>);
 }
