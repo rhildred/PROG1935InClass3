@@ -8,7 +8,8 @@ export default function Index(props) {
             if (props.category) {
                 const res = await fetch(`https://world.openfoodfacts.org/api/v2/search?fields=code,product_name,image_front_small_url&amp;categories_tags_en=${props.category}`);
                 const fetchedData = await res.json();
-                setData(fetchedData);
+                // make the data just be the array
+                setData(fetchedData.products);
             }
         }
         getData();
@@ -34,7 +35,8 @@ export default function Index(props) {
                 </p>
             </div>
             <div id="results" className="row columns is-mutiline">
-                {data.products ? data.products.map(product =>
+                {/* this is where we do the list */}
+                {data.map(product =>
                     <div className="column is-4" key={product.code}>
                         <div className="card large">
                             <div className="card-image">
@@ -58,7 +60,7 @@ export default function Index(props) {
                         </div>
                     </div>
 
-                ) : ""}
+                )}
             </div>
         </main>
     </>);
