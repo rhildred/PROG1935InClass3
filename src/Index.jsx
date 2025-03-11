@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "./Index.css";
 
 export default function Index(props) {
     const [data, setData] = useState([]);
@@ -13,10 +14,16 @@ export default function Index(props) {
         getData();
     }, []);
     return (<>
-        <form>
-            <input name="s" placeholder="search" />
-            <button style={{ display: "none" }} type="submit">search</button>
-        </form>
+        <div class="container">
+            <form>
+                <div class="control has-icons-left">
+                    <input class="input is-rounded" type="text" placeholder="Search" name="s" />
+                    <span class="icon is-left">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </div>
+            </form>
+        </div>
         <pre><code>
             {JSON.stringify(data)}
         </code>
