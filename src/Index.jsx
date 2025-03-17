@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import "./Index.css";
+import Product from "./Product";
 
 export default function Index(props) {
     const [data, setData] = useState([]);
+    const [favourites, updateFavourites] = useState(JSON.parse(localStorage.getItem("favourites")) || []);
     useEffect(() => {
         async function getData() {
             if (props.category) {
@@ -34,32 +36,18 @@ export default function Index(props) {
                     good info about food
                 </p>
             </div>
-            <div id="results" className="row columns is-mutiline">
+            <h2>Search Results</h2>
+            <div className="results row columns is-mutiline">
                 {/* this is where we do the list */}
                 {data.map(product =>
-                    <div className="column is-4" key={product.code}>
-                        <div className="card large">
-                            <div className="card-image">
-                                <figure className="image">
-                                    <img src={product.image_front_small_url}
-                                        alt={product.product_name} />
-                                </figure>
-                            </div>
-                            <div className="card-content">
-                                <div className="media">
-                                    <div className="media-content">
-                                        <p className="title is-4">{product.product_name}</p>
-                                    </div>
-                                </div>
-
-                                <div className="content">
-                                    See more about {product.product_name}
-                                    <a href={`?code=${product.code}`}> here</a>.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <Product key={`data${product.code}`} {...product} buttonText="add" updateFavourites={updateFavourites}/>
+                )}
+            </div>
+            <h2>Favourites</h2>
+            <div className="results row columns is-mutiline">
+                {/* this is where we do the list */}
+                {favourites.map(product =>
+                    <Product key={`favourite${product.code}`} {...product} buttonText="remove" updateFavourites={updateFavourites}/>
                 )}
             </div>
         </main>
