@@ -11,6 +11,6 @@ save favorite recipes, and explore recipe details in a dedicated page. The React
 |consume [mealdb API](https://www.themealdb.com/api.php)|4|
 |home page|4|
 |Navigation Between Pages|2|
-|bonus - use a separate component for the product card in the list view `<Product key={product.code} {...product} />`|1|
+|bonus - format the detail view to be a useful recipe display />`|1|
 |||
 |total|11|
